@@ -1,0 +1,75 @@
+body {
+	background-color: whitesmoke;
+}
+
+.div-center {
+	background-color: white;
+	color: red;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 19px;
+}
+
+.div-box {
+	text-align: center;
+	margin-top: 180px;
+}
+
+.btn-one {
+	background-color: white;
+	color: blue;
+	width: 400px;
+	height: 200px;
+	margin: 10px;
+	border-radius: 20px;
+	border: none;
+	font-size: 30px;
+	box-shadow: 0 10px 30px rgba(10, 30, 96, 2);
+	cursor: pointer;
+}
+
+.btn-one:hover {
+	transform: scale(1.04);
+}
+
+.left-btn {
+	position: absolute;
+	left: 10px;
+	top: 35px;
+	color: blue;
+	font-size: 29px;
+	border: none;
+	border-radius: 5px;
+}
+
+.left-btn:hover {
+	color: red;
+	transform: scale(1.02);
+	cursor: pointer;
+}
+
+.btn-two {
+	background-color: red;
+	color: white;
+	width: 200px;
+	height: 40px;
+	font-size: 19px;
+	margin: 10px;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 1px 30px rgba(10, 30, 96, 2);
+}
+
+.btn-two:hover {
+	transform: scale(1.06);
+	cursor: pointer;
+}
+
+.p-1 {
+	color: green;
+	font-size: 20px;
+	text-align: center;
+}

@@ -1,0 +1,66 @@
+body {
+	background-color: blue;
+}
+.center-id {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.input-box {
+	background-color: whitesmoke;
+	display: inline-block;
+	width: 420px;
+	border-radius: 10px;
+	border: 1px solid white;
+	box-shadow: 0 10px 110px rgba(10, 30, 96, 9);
+}
+
+.input-box:hover {
+	transform: scale(1.02);
+}
+
+.id-left {
+	display: inline-block;
+	width: 270px;
+	text-align: left;
+}
+
+label {
+	font-size: 23px;
+}
+
+input {
+	width: 270px;
+	height: 27px;
+	font-size: 16px;
+}
+
+.h-pro {
+	margin-top: 0;
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
+	width: 370px;
+	padding: 25px 25px;
+	cursor: default;
+}
+
+.btn-kirish {
+	background-color: blue;
+	color: white;
+	font-size: 18px;
+	width: 270px;
+	height: 30px;
+	cursor: pointer;
+}
+
+a {
+	font-size: 19px;
+	margin: 10px;
+	text-decoration: none;
+	color: grey;
+}
+
+a:hover {
+	text-decoration: underline;
+}

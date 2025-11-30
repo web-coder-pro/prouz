@@ -1,0 +1,87 @@
+body {
+	background-color: whitesmoke;
+}
+
+.btn-conteyner {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.btn-inline-block {
+	display: inline-block;
+	background-color: white;
+	box-shadow: 0 10px 30px rgba(10, 30, 96, 2);
+	border-radius: 20px;
+	border: none;
+	padding: 20px 20px;
+}
+
+.svg-button {
+	width: 35px;
+	height: 35px;
+	color: blue;
+	position: absolute;
+	top: 30px;
+	left: 180px;
+}
+
+.svg-button:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.btn-subject {
+	background-color: #000080;
+	color: white;
+	font-size: 45px;
+	width: 300px;
+	height: 250px;
+	border-radius: 15px;
+	border: none;
+	margin: 10px;
+	box-shadow: 0 10px 30px rgba(10, 30, 96, 2);
+}
+
+.btn-subject:hover {
+	transform: scale(1.04);
+	cursor: pointer;
+}
+
+.footer {
+	background-color: white;
+	color: blue;
+	padding: 60px 60px;
+	text-align: center;
+	margin-top: 100px;
+}
+
+.footer h3 {
+	color: red;
+}
+
+a {
+	font-size: 26px;
+	color: grey;
+	margin: 15px;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.back-a {
+	font-size: 18px;
+}
+
+@media(max-width: 480px) {
+	.btn-inline-block {
+		padding: 1px 1px;
+	}
+
+	.svg-button {
+		position: absolute;
+		top: 40px;
+		left: 10px;
+	}
+}
