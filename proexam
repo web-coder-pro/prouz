@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="icon" type="image/png" href="we.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="website icon" type="png" href="pro.jpg">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .test-box {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 20px;
+      max-width: 700px;
+      width: 90%;
+      margin-top: 30px;
+    }
+
+    .savol {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .savol p {
+      font-size: 22px;
+      color: #333;
+    }
+
+    .variant {
+      display: block;
+      margin: 8px 0;
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .variant:hover {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+    .variant:active {
+      background-color: #007bff; 
+    }
+
+    .variant input {
+      margin-right: 10px;
+    }
+
+    .btn-check {
+      width: 200px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: 0.3s ease;
+    }
+
+    .btn-check:hover {
+      background-color: #218838;
+    }
+
+    .footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 10px;
+      margin-top: 50px;
+    }
+
+    .footer ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 110px;
+      text-align: left;
+    }
+
+    .footer li {
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    .h2-pro {
+      color: blue;
+    }
+
+    .a-one {
+      color: white;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .test-box {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .variant {
+        font-size: 16px;
+      }
+
+      .btn-check {
+        width: 90%;
+      }
+
+      .footer h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="test-box" id="testContainer">
+    <h2>📑 Test Topshiriqlari 📑 <br> <span style="color: blue;">pro.uz - biz bilan birga rivojlaning!!!</span></h2>
+  </div>
+
+  <div>
+    <button class="btn-check">TEKSHIRISH</button>
+  </div>
+
+  <footer class="footer">
+    <h1>Test jadvali:</h1>
+    <ul>
+      <li><a href="matematika.html">1. Matematika</a></li>
+      <li><a href="english.html">2. Ingiliz tili</a></li>
+      <li><a href="biology.html">3. Biologiya</a></li>
+      <li><a href="geografiya.html">4. Geografiya</a></li>
+      <li><a href="huquq.html">5. Huquq</a></li>
+      <li><a href="informatika.html">6. Informatika</a></li>
+    </ul>
+    <hr>
+    <a href="index.html" style="font-size: 20px;">@pro.uz_index</a>
+
+    <h2 class="h2-pro">Ijtimoiy tarmoqdagi kanallarimizga obuna boling:</h2>
+    <a class="a-one" href="https://www.instagram.com/pro_uz.exam">@Instagram</a>
+    <a class="a-one" href="https://t.me/prouzexamafwa">@Telegram</a>
+  </footer>
+
+  <script>
+    const testContainer = document.getElementById("testContainer");
+    const selectedTestsJSON = localStorage.getItem('selectedTests');
+
+    if (!selectedTestsJSON) {
+      testContainer.innerHTML += "<p>Hech qanday test topilmadi.</p>";
+    } else {
+      const selectedTests = JSON.parse(selectedTestsJSON);
+      selectedTests.forEach((test, index) => {
+        const savolDiv = document.createElement("div");
+        savolDiv.classList.add("savol");
+
+        const savolText = document.createElement("p");
+        savolText.innerHTML = `<hr> <b>${index + 1}. ${test.savol}</b>`;
+        savolDiv.appendChild(savolText);
+
+        test.variantlar.forEach(variant => {
+          const label = document.createElement("label");
+          label.classList.add("variant");
+          label.innerHTML = `<input type="radio" name="savol${index}" value="${variant}"> ${variant}`;
+          savolDiv.appendChild(label);
+        });
+
+        testContainer.appendChild(savolDiv);
+      });
+    }
+  </script>
+
+  <script>
+    const checkBtn = document.querySelector('.btn-check');
+    checkBtn.addEventListener('click', () => {
+      const selectedTestsJSON = localStorage.getItem('selectedTests');
+      if (!selectedTestsJSON) {
+        alert('Hech qanday test topilmadi!');
+        return;
+      }
+
+      const selectedTests = JSON.parse(selectedTestsJSON);
+      let correctCount = 0;
+      let incorrectCount = 0;
+
+      for (let i = 0; i < selectedTests.length; i++) {
+        const radios = document.getElementsByName(`savol${i}`);
+        let userAnswer = null;
+        for (const radio of radios) {
+          if (radio.checked) {
+            userAnswer = radio.value;
+            break;
+          }
+        }
+
+        const correctAnswer = selectedTests[i].javob || selectedTests[i].answer;
+        const savolDiv = radios[0]?.closest('.savol');
+
+        if (userAnswer === null) {
+          if (savolDiv) savolDiv.style.backgroundColor = '#fff3cd'; // sariq
+          incorrectCount++;
+        } else if (userAnswer === correctAnswer) {
+          if (savolDiv) savolDiv.style.backgroundColor = '#d4edda'; // yashil
+          correctCount++;
+        } else {
+          if (savolDiv) savolDiv.style.backgroundColor = '#f8d7da'; // qizil
+          incorrectCount++;
+        }
+      }
+
+      let resultDiv = document.getElementById('result');
+      if (!resultDiv) {
+        resultDiv = document.createElement('div');
+        resultDiv.id = 'result';
+        resultDiv.style.marginTop = '20px';
+        testContainer.parentNode.insertBefore(resultDiv, testContainer.nextSibling);
+      }
+
+      resultDiv.innerHTML = `
+        <h3>Natija:</h3>
+        <p>✅ To'g'ri javoblar: <b>${correctCount}</b></p>
+        <p>❌ Noto'g'ri javoblar: <b>${incorrectCount}</b></p>
+        <button id="restartBtn" style="
+          margin-top: 15px;
+          padding: 8px 20px;
+          font-size: 16px;
+          border-radius: 8px;
+          background-color: red;
+          color: white;
+          border: none;
+          cursor: pointer;
+        ">Testni qaytadan boshlash</button>
+      `;
+
+      checkBtn.disabled = true;
+
+      document.getElementById('restartBtn').addEventListener('click', () => {
+        window.location.href = 'people.html';
+      });
+    });
+  </script>
+
+</body>
+</html>
