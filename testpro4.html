@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>B2 English Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    #startBtn, button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        background: #4CAF50;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #startBtn {
+        margin-top: 25px;
+    }
+
+    .question {
+        display: none;
+        background: #fff;
+        padding: 20px;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    .options div {
+        background: #ececec;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .options div:hover {
+        background: #d5d5d5;
+    }
+
+    .selected {
+        background: #90caf9 !important;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button:disabled {
+        background: #aaa;
+    }
+
+    #resultBox {
+        display: none;
+        background: white;
+        width: 90%;
+        max-width: 450px;
+        padding: 20px;
+        margin: 40px auto;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+</style>
+</head>
+<body>
+
+<h2>B2 English Test</h2>
+<button id="startBtn">Start Test</button>
+
+<div id="questionsContainer"></div>
+
+<div id="resultBox">
+    <h2>Natija</h2>
+    <p id="correctCount"></p>
+    <p id="wrongCount"></p>
+    <button onclick="restart()">Qayta boshlash</button>
+    <button onclick="window.location.href='englishlevel.html'">Darajaga qaytish</button>
+</div>
+
+<script>
+// ===================== B2 TESTLAR ARRAYI =====================
+
+const tests = [
+    {q:"Hardly ______ the bus when it started raining heavily.", o:["had we reached","we had reached","we reach"], a:0},
+    {q:"If he had taken the job offer, he ______ in Canada now.", o:["will live","would be living","was living"], a:1},
+    {q:"The more you study, ______ you will understand.", o:["the most","the more","more"], a:1},
+    {q:"I wish I ______ more time to finish this project.", o:["have","had","would have"], a:1},
+    {q:"She denied ______ the documents.", o:["stealing","to steal","that she stole"], a:0},
+    {q:"Never ______ such a beautiful view before.", o:["I have seen","have I seen","did I see"], a:1},
+    {q:"The manager demanded that the report ______ immediately.", o:["to be sent","is sent","be sent"], a:2},
+    {q:"He’s considering ______ his own business.", o:["start","to start","starting"], a:2},
+    {q:"No sooner had he entered the room ______ everyone stood up.", o:["when","than","then"], a:1},
+    {q:"We should have left earlier; we ______ the traffic.", o:["could avoid","could have avoided","avoided"], a:1},
+    {q:"She speaks French fluently, ______ she has never lived in France.", o:["even though","despite","however"], a:0},
+    {q:"They agreed ______ the contract after long negotiations.", o:["signing","to sign","sign"], a:1},
+    {q:"He apologized for not ______ the email sooner.", o:["answer","answered","answering"], a:2},
+    {q:"The book, ______ I borrowed last week, is fascinating.", o:["that","which","who"], a:1},
+    {q:"It’s high time you ______ more responsible.", o:["be","were","are"], a:1},
+];
+
+let selectedAnswers = new Array(tests.length).fill(null);
+
+const container = document.getElementById("questionsContainer");
+
+
+// ===================== SAVOLLARNI CHIZISH =====================
+
+tests.forEach((t, i) => {
+    let div = document.createElement("div");
+    div.className = "question";
+    div.id = "q" + i;
+
+    div.innerHTML = `
+        <h3>${i+1}. ${t.q}</h3>
+        <div class="options">
+            ${t.o.map((opt, idx)=>`
+                <div onclick="selectOption(${i}, ${idx}, this)">${opt}</div>
+            `).join("")}
+        </div>
+
+        <div class="buttons">
+            <button onclick="prev(${i})" ${i===0?"disabled":""}>Orqaga</button>
+            ${
+                i === tests.length - 1
+                ? `<button onclick="finish()">Tugatish</button>`
+                : `<button onclick="next(${i})">Keyingisi</button>`
+            }
+        </div>
+    `;
+
+    container.appendChild(div);
+});
+
+
+// ===================== Variant tanlash =====================
+
+function selectOption(qIndex, optIndex, element) {
+    selectedAnswers[qIndex] = optIndex;
+
+    const optionsDiv = element.parentNode.querySelectorAll("div");
+    optionsDiv.forEach(o => o.classList.remove("selected"));
+
+    element.classList.add("selected");
+}
+
+
+// ===================== Navigatsiya =====================
+
+document.getElementById("startBtn").onclick = () => {
+    document.getElementById("q0").style.display = "block";
+    document.getElementById("startBtn").style.display = "none";
+};
+
+function next(i){
+    document.getElementById("q"+i).style.display="none";
+    document.getElementById("q"+(i+1)).style.display="block";
+}
+
+function prev(i){
+    document.getElementById("q"+i).style.display="none";
+    document.getElementById("q"+(i-1)).style.display="block";
+}
+
+
+// ===================== TESTNI TUGATISH =====================
+
+function finish() {
+    let correct = 0;
+    let wrong = 0;
+
+    selectedAnswers.forEach((ans, idx) => {
+        if (ans === tests[idx].a) correct++;
+        else wrong++;
+    });
+
+    document.getElementById("correctCount").innerText = "To‘g‘ri javoblar: " + correct;
+    document.getElementById("wrongCount").innerText = "Xato javoblar: " + wrong;
+
+    document.querySelectorAll(".question").forEach(q => q.style.display = "none");
+    document.getElementById("resultBox").style.display = "block";
+}
+
+
+// ===================== Qayta boshlash =====================
+
+function restart() {
+    selectedAnswers.fill(null);
+
+    document.querySelectorAll(".question .options div").forEach(d =>
+        d.classList.remove("selected")
+    );
+
+    document.getElementById("resultBox").style.display = "none";
+    document.getElementById("q0").style.display = "block";
+}
+</script>
+
+</body>
+</html>

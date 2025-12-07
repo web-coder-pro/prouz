@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A1 English Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    #startBtn, button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        background: #4CAF50;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #startBtn {
+        margin-top: 25px;
+    }
+
+    .question {
+        display: none;
+        background: #fff;
+        padding: 20px;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    .options div {
+        background: #ececec;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .options div:hover {
+        background: #d5d5d5;
+    }
+
+    /* Tanlangan variant */
+    .selected {
+        background: #90caf9 !important;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button:disabled {
+        background: #aaa;
+    }
+
+    /* Natija oynasi */
+    #resultBox {
+        display: none;
+        background: white;
+        width: 90%;
+        max-width: 450px;
+        padding: 20px;
+        margin: 40px auto;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+</style>
+</head>
+<body>
+
+<h2>A1 English Test</h2>
+<button id="startBtn">Start Test</button>
+
+<div id="questionsContainer"></div>
+
+<div id="resultBox">
+    <h2>Natija</h2>
+    <p id="correctCount"></p>
+    <p id="wrongCount"></p>
+    <button onclick="restart()">Qayta boshlash</button>
+</div>
+
+<script>
+// ===================== TESTLAR ARRAYI =====================
+
+const tests = [
+    {q:"What is your name?", o:["My name is John","I am 20","In the park"], a:0},
+    {q:"How old are you?", o:["Yes, I am","I am 18","At school"], a:1},
+    {q:"Where are you from?", o:["I am from Uzbekistan","I am fine","Yes, thanks"], a:0},
+    {q:"What is this?", o:["It is a book","Blue","Fast"], a:0},
+    {q:"What color is the sky?", o:["Red","Blue","Black"], a:1},
+    {q:"What is the opposite of big?", o:["Small","Long","Tall"], a:0},
+    {q:"Choose the correct sentence:", o:["He am student","He is a student","He are student"], a:1},
+    {q:"I ___ a teacher.", o:["is","am","are"], a:1},
+    {q:"They ___ my friends.", o:["am","is","are"], a:2},
+    {q:"What time is it?", o:["It is 3 o’clock","I am 3","Three I am"], a:0},
+    {q:"What day is it today?", o:["Apple","Monday","Morning"], a:1},
+    {q:"Where do you live?", o:["In Tashkent","Yes, I do","Fast"], a:0},
+    {q:"What is your favorite food?", o:["Pizza","Run","Strong"], a:0},
+    {q:"How are you?", o:["I am fine","I am Tashkent","Blue"], a:0},
+    {q:"What is the plural of dog?", o:["Doges","Dogs","Dog’s"], a:1},
+];
+
+let selectedAnswers = new Array(tests.length).fill(null); // tanlangan variantlar
+
+const container = document.getElementById("questionsContainer");
+
+
+// ===================== SAVOLLARNI CHIZISH =====================
+
+tests.forEach((t, i) => {
+    let div = document.createElement("div");
+    div.className = "question";
+    div.id = "q" + i;
+
+    div.innerHTML = `
+        <h3>${i+1}. ${t.q}</h3>
+        <div class="options">
+            ${t.o.map((opt, idx)=>`
+                <div onclick="selectOption(${i}, ${idx}, this)">${opt}</div>
+            `).join("")}
+        </div>
+
+        <div class="buttons">
+            <button onclick="prev(${i})" ${i===0?"disabled":""}>Orqaga</button>
+            ${
+                i === tests.length - 1
+                ? `<button onclick="finish()">Tugatish</button>`
+                : `<button onclick="next(${i})">Keyingisi</button>`
+            }
+        </div>
+    `;
+
+    container.appendChild(div);
+});
+
+
+// ===================== Variantni tanlash =====================
+
+function selectOption(qIndex, optIndex, element) {
+    selectedAnswers[qIndex] = optIndex;
+
+    // Barcha optionlardan "selected"ni olib tashlash
+    const optionsDiv = element.parentNode.querySelectorAll("div");
+    optionsDiv.forEach(o => o.classList.remove("selected"));
+
+    // Tanlanganiga class qo‘shish
+    element.classList.add("selected");
+}
+
+
+// ===================== Navigatsiya =====================
+
+document.getElementById("startBtn").onclick = () => {
+    document.getElementById("q0").style.display = "block";
+    document.getElementById("startBtn").style.display = "none";
+};
+
+function next(i){
+    document.getElementById("q"+i).style.display="none";
+    document.getElementById("q"+(i+1)).style.display="block";
+}
+
+function prev(i){
+    document.getElementById("q"+i).style.display="none";
+    document.getElementById("q"+(i-1)).style.display="block";
+}
+
+
+// ===================== TESTNI TUGATISH =====================
+
+function finish() {
+    let correct = 0;
+    let wrong = 0;
+
+    selectedAnswers.forEach((ans, idx) => {
+        if (ans === tests[idx].a) correct++;
+        else wrong++;
+    });
+
+    document.getElementById("correctCount").innerText = "To‘g‘ri javoblar: " + correct;
+    document.getElementById("wrongCount").innerText = "Xato javoblar: " + wrong;
+
+    document.querySelectorAll(".question").forEach(q => q.style.display = "none");
+    document.getElementById("resultBox").style.display = "block";
+}
+
+
+// ===================== Qayta boshlash =====================
+
+function restart() {
+    selectedAnswers.fill(null);
+
+    document.querySelectorAll(".question .options div").forEach(d =>
+        d.classList.remove("selected")
+    );
+
+    document.getElementById("resultBox").style.display = "none";
+    document.getElementById("q0").style.display = "block";
+}
+</script>
+
+</body>
+</html>

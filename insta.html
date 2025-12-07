@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instagram - profil</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" type="image/png" href="pro.jpg">
+	<link rel="stylesheet" type="text/css" href="instastyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta property="og:title" content="Ingiliz tilidan - darajangizni aniqlang...">
+    <meta property="og:description" content="Pro.uz sayti orqali ingiliz tili darajangizni aniqlang va qimmatbaho sovg'alarga ega bo'ling.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="level.jpg">
+    <meta property="og:url" content="https://pro.uz">
+
+
+</head>
+<body>
+
+	<div class="center-div">
+		<h2>❌<hr>Davom ettishingiz uchun bizning<br>Instagram sahifamizga obuna bo'ling...</h2>
+
+		<a href="https://www.instagram.com/pro_uz.exam" id="instaLink">@instagram</a><br><br>
+
+		<button class="btn" id="continueBtn">Davom etish</button>
+
+        <p id="msg" style="color:red; display:none; margin-top:15px; font-size:18px;">
+            Iltimos, avval obuna bo'ling!
+        </p>
+	</div>
+
+
+<script>
+// Foydalanuvchi linkni bosgan-bosmaganini tekshirish
+let clicked = false;
+
+// Instagram link bosilganda true bo'ladi
+document.getElementById("instaLink").addEventListener("click", () => {
+    clicked = true;
+});
+
+// Davom etish tugmasi bosilganda
+document.getElementById("continueBtn").addEventListener("click", () => {
+    if (!clicked) {
+        // Foydalanuvchi linkga bosmagan
+        document.getElementById("msg").style.display = "block";
+    } else {
+        // Haqiqiy sahifaga o'tkazish yoki boshqa kod
+        window.location.href = "englishlevel.html"; // shu yerga davom sahifangizni yozing
+    }
+});
+</script>
+
+</body>
+</html>
