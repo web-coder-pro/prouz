@@ -1,87 +1,136 @@
-body {
-	background-color: whitesmoke;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f4c81, #1e90ff);
+    color: #333;
+}
+
+/* Asosiy konteyner */
 .btn-conteyner {
-	text-align: center;
-	margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
 }
 
 .btn-inline-block {
-	display: inline-block;
-	background-color: white;
-	box-shadow: 0 10px 30px rgba(10, 30, 96, 2);
-	border-radius: 20px;
-	border: none;
-	padding: 20px 20px;
+    max-width: 900px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-.svg-button {
-	width: 35px;
-	height: 35px;
-	color: blue;
-	position: absolute;
-	top: 30px;
-	left: 180px;
-}
-
-.svg-button:hover {
-	color: red;
-	cursor: pointer;
-}
-
-.btn-subject {
-	background-color: #000080;
-	color: white;
-	font-size: 45px;
-	width: 300px;
-	height: 250px;
-	border-radius: 15px;
-	border: none;
-	margin: 10px;
-	box-shadow: 0 10px 30px rgba(10, 30, 96, 2);
-}
-
-.btn-subject:hover {
-	transform: scale(1.04);
-	cursor: pointer;
-}
-
-.footer {
-	background-color: white;
-	color: blue;
-	padding: 60px 60px;
-	text-align: center;
-	margin-top: 100px;
-}
-
-.footer h3 {
-	color: red;
-}
-
-a {
-	font-size: 26px;
-	color: grey;
-	margin: 15px;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
+/* Sarlavhalar */
+.btn-inline-block h1 {
+    color: #0f4c81;
+    margin-bottom: 20px;
+    font-size: 26px;
 }
 
 .back-a {
-	font-size: 18px;
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #1e90ff;
+    transition: 0.3s;
 }
 
-@media(max-width: 480px) {
-	.btn-inline-block {
-		padding: 1px 1px;
-	}
+.back-a:hover {
+    color: #0f4c81;
+    text-decoration: underline;
+}
 
-	.svg-button {
-		position: absolute;
-		top: 40px;
-		left: 10px;
-	}
+/* Fan tugmalari */
+.btn-subject {
+	display: inline-block;
+	padding: 40px;
+    margin: 10px;
+    background: linear-gradient(145deg, #1e90ff, #0f4c81);
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn-subject:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* Premium (yopiq) tugmalar */
+.btn-subject:disabled,
+.btn-inline-block h1 span {
+    opacity: 0.7;
+}
+
+/* Chiziq */
+hr {
+    margin: 25px 0;
+    border: none;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    padding: 25px 15px;
+    background: #0f4c81;
+    text-align: center;
+    color: #fff;
+}
+
+.footer h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer h3 {
+    font-size: 15px;
+    margin: 15px 0;
+}
+
+.footer a {
+    display: inline-block;
+    margin: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Mobil moslashuv */
+@media (max-width: 600px) {
+    .btn-inline-block {
+        padding: 20px;
+    }
+
+    .btn-inline-block h1 {
+        font-size: 20px;
+    }
+
+    .btn-subject {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        font-size: 17px;
+    }
 }
