@@ -1,0 +1,183 @@
+/* premium.css */
+
+body {
+    background-color: #f0f4ff; /* engil ko‘k fon */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0a1e60; /* quyuq ko‘k matn rangi */
+    margin: 0;
+    padding: 0;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.block-offic {
+    background-color: #ffffff; /* toza oq fon */
+    max-width: 700px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(10, 30, 96, 0.2);
+    padding: 40px 50px;
+    transition: transform 0.3s ease;
+}
+
+.block-offic:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(10, 30, 96, 0.35);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #0549a0; /* ko‘k rang sarlavhalar uchun */
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 1.9rem;
+    margin-top: 35px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #0a1e60;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+ul li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #0a1e60;
+}
+
+ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0549a0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+p[style] {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #033e7c;
+}
+
+.btn-info {
+    background-color: blue;
+    color: white;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+a {
+	color: grey;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.btn-info:hover {
+    transform: scale(1.02);
+}
+
+.btn-buy {
+    background-color: green;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn-buy:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .block-offic {
+        padding: 30px 25px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 480px gacha ekranlar uchun (mobil telefonlar) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px 5px;
+    }
+    .center-div {
+        padding: 15px 10px;
+        flex-direction: column;
+    }
+    .block-offic {
+        padding: 20px 15px;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(10, 30, 96, 0.15);
+    }
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 1.3rem;
+        margin-top: 25px;
+    }
+    h3 {
+        font-size: 1.1rem;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    p, ul li {
+        font-size: 1rem;
+    }
+    ul li {
+        padding-left: 25px;
+    }
+    ul li::before {
+        font-size: 1rem;
+        top: 1px;
+    }
+}

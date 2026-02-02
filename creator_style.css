@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f4c81, #1fa2ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Card */
+.creator-card {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.creator-card h1 {
+    text-align: center;
+    color: #0f4c81;
+    margin-bottom: 15px;
+}
+
+/* Line */
+.creator-card hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #0f4c81, #1fa2ff);
+    margin-bottom: 25px;
+}
+
+/* Subtitle */
+.creator-card h2 {
+    color: #1fa2ff;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.creator-card p {
+    color: #444;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+/* Highlight text */
+.highlight {
+    background: #f0f8ff;
+    padding: 12px;
+    border-left: 4px solid #1fa2ff;
+    border-radius: 8px;
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f4c81, #1fa2ff);
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    box-shadow: 0 8px 20px rgba(31, 162, 255, 0.4);
+    transform: translateY(-2px);
+}

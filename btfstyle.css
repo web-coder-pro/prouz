@@ -1,0 +1,67 @@
+/* Umumiy sozlamalar */
+body {
+    background-color: #f0f4ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #0a1e60;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-i {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.block-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(10, 30, 96, 0.15);
+    padding: 30px 25px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.block-box:hover {
+    box-shadow: 0 15px 40px rgba(10, 30, 96, 0.3);
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #0549a0;
+}
+
+.contact-info a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #0a1e60;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #0549a0;
+    text-decoration: underline;
+}
+
+/* Mobil uchun responsiv */
+@media (max-width: 480px) {
+    .block-box {
+        padding: 25px 15px;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .contact-info a {
+        font-size: 1rem;
+    }
+}

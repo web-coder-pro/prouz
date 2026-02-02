@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f4c81, #1fa2ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center container */
+.container {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.card h2 {
+    color: #0f4c81;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.desc {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Phone */
+.contact-item {
+    background: #f0f8ff;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    color: #0f4c81;
+    margin-bottom: 20px;
+}
+
+/* Telegram button */
+.telegram-btn {
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0088cc, #1fa2ff);
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.telegram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
+}
