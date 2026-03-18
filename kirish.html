@@ -1,44 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="uz">
 <head>
-	<title>RO'YXATDAN O'TISH - PRO</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="website icon" type="png" href="pro.jpg">
-	<link rel="stylesheet" type="text/css" href="krishstyle.css">
-	<link rel="stylesheet" type="text/css" href="kirishmed.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ro'yxatdan o'tish - Pro</title>
+
+<style>
+/* Kirish sahifa CSS */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#004aad,#00aaff);
+  color:white;
+}
+
+.center-id{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+}
+
+.input-box{
+  width:380px;
+  padding:40px;
+  background:#0a1f3f;
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(0,170,255,0.6);
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.h-pro{
+  text-align:center;
+  margin-bottom:30px;
+  color:#00f0ff;
+}
+
+.input-group{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.input-group input{
+  width:100%;
+  padding:10px;
+  border:none;
+  outline:none;
+  background:transparent;
+  border-bottom:2px solid #00f0ff;
+  color:white;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.input-group label{
+  position:absolute;
+  top:10px;
+  left:0;
+  color:#aadfff;
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label{
+  top:-15px;
+  font-size:12px;
+  color:#00f0ff;
+}
+
+.btn-kirish{
+  width:100%;
+  padding:12px;
+  background:#00aaff;
+  border:none;
+  border-radius:6px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-kirish:hover{
+  background:#0077aa;
+  transform:scale(1.05);
+}
+
+.login-text{
+  text-align:center;
+  margin-top:15px;
+  color:#aadfff;
+}
+
+.login-text a{
+  color:#00f0ff;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.login-text a:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+
+.links{
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.links a{
+  color:#aadfff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.links a:hover{
+  color:#00f0ff;
+  text-decoration:underline;
+}
+</style>
 </head>
+
 <body>
+<div class="center-id">
+  <div class="input-box">
+    <h1 class="h-pro">🔒 ProExem 🔒 Ro'yxatdan o'tish</h1>
 
-	<div class="center-id">
-		<div class="input-box">
+    <form id="signupForm">
 
-			<h1 class="h-pro">Pro.uz - sayti orqali ro'yxatdan o'tish!!!</h1>
+  <div class="input-group">
+    <input type="text" id="name" required>
+    <label for="name">Ismingiz</label>
+  </div>
 
-			<div class="id-left">
-				<form id="contactForm">
-					<label>Ism:</label><br>
-					<input type="text" name="ism" id="name" placeholder="Ism" required><br><br>
+  <div class="input-group">
+    <input type="text" id="surname" required>
+    <label for="surname">Familiyangiz</label>
+  </div>
 
-					<label>Telefon raqam:</label><br>
-					<input type="number" name="telefon" id="pess" placeholder="telefon raqam" required><br><br>
+  <div class="input-group">
+    <input type="date" id="birthdate" required>
+  </div>
 
-					<button type="submit" class="btn-kirish">KIRISH - PRO ✔</button><br><br>
-				</form>
+  <div class="input-group">
+    <input type="text" id="sinf" required>
+    <label>Sinfingiz</label>
+  </div>
 
-				<script src="kirishjs.js" type="text/javascript"></script>
+  <button type="submit" class="btn-kirish">
+    Ro'yxatdan o'tish ✔
+  </button>
 
-				<hr><br>
+</form>
 
-				<a href="topshiriq.html">haqida</a>
-				<a href="privyc.html">maxfiylik siyosati</a>
-				<a href="https://www.instagram.com/pro_uz.exam">Instagam</a>
-				<a href="https://t.me/prouzexamafwa">Telegram</a>
-				<a href="index.html">aloqa</a>
-				<a href="index.html">pro.uz</a>
-				<a href="terms.html">foydalanish shartlari</a><br><br>
-			</div>
-		</div>
-	</div>
+    <div class="links">
+      <a href="topshiriq.html">Topshiriqlar</a>
+      <a href="haqida.html.html">Haqida</a>
+      <a href="privyc.html">Maxfiylik siyosati</a>
+      <a href="https://www.instagram.com/wweb.editor">Instagram</a>
+      <a href="https://t.me/wwebeditor">Telegram</a>
+      <a href="cont.html">Aloqa</a>
+      <a href="terms.html">Terms & Condition</a>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase + JS inline -->
+
+<script type="text/javascript" src="server.js"></script>
+
 
 </body>
 </html>
