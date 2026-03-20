@@ -1,0 +1,338 @@
+/* Yordam bo'limi stillari - style.css */
+.yordam-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+* {
+    font-family: Helvetica;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-div-stick {
+    position: static;
+    text-align: center;
+    background-color: skyblue;
+    padding: 20px;
+    margin-top: -70px;
+}
+
+/* Sarlavhalar */
+.section-title {
+    text-align: center;
+    color: white;
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 700;
+    animation: fadeInDown 0.8s ease;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.95);
+    font-size: 1.3em;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease;
+}
+
+/* FAQ kontener */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+/* FAQ item */
+.faq-item {
+    background: white;
+    margin: 10px 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+}
+
+/* FAQ savol tugmasi */
+.faq-question {
+    width: 100%;
+    padding: 20px 25px;
+    background: white;
+    border: 2px solid white;
+    border-bottom: 2px solid blue;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.faq-icon {
+    font-size: 1.3em;
+}
+
+.arrow {
+    margin-left: auto;
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+    color: #667eea;
+}
+
+.faq-question.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* FAQ javob */
+.faq-answer {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.faq-answer p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.faq-answer a {
+    color: #0010ff;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 19px;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.faq-answer strong {
+    color: #667eea;
+}
+
+/* Kontakt forma */
+.contact-form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.8s ease;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Forma elementlari */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.support-form input,
+.support-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.support-form input:hover,
+.support-form textarea:hover {
+    border-color: #999;
+}
+
+form p {
+    margin: 20px;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+/* Yuborish tugmasi */
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Muvaffaqiyat xabari */
+.success-message {
+    background: #48bb78;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    animation: slideIn 0.5s ease;
+}
+
+/* Animatsiyalar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobil versiya */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+    
+    .faq-question {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+    
+    .faq-answer.show {
+        padding: 15px 20px;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
+    }
+    
+    .form-title {
+        font-size: 1.5em;
+    }
+    
+    .faq-item:hover {
+        transform: none;
+    }
+}
+
+/* Kichik ekranlar */
+@media (max-width: 480px) {
+    .yordam-section {
+        padding: 60px 1px;
+    }
+    
+    .section-title {
+        font-size: 1.8em;
+    }
+    
+    .faq-question {
+        padding: 20px 20px;
+        gap: 10px;
+    }
+    
+    .contact-form-container {
+        padding: 20px;
+    }
+    
+    .support-form input,
+    .support-form textarea {
+        padding: 12px;
+    }
+}
