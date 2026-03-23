@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="pro.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geografik Test</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #0f2027, #2c5364);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.start-screen {
+  text-align: center;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #00bcd4;
+  color: white;
+  cursor: pointer;
+}
+
+.quiz-box {
+  display: none;
+  width: 400px;
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.answers button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="start-screen" id="startScreen">
+  <h1>Geografik Test</h1>
+  <p>Bilimingni sinab ko‘r!</p>
+  <button onclick="startQuiz()">Boshlash</button>
+</div>
+
+<div class="quiz-box" id="quizBox">
+  <h2 id="question"></h2>
+  <div class="answers">
+    <button onclick="checkAnswer(0)"></button>
+    <button onclick="checkAnswer(1)"></button>
+    <button onclick="checkAnswer(2)"></button>
+    <button onclick="checkAnswer(3)"></button>
+  </div>
+  <p id="result"></p>
+</div>
+
+<script>
+const questions = [
+{question:"Dunyoning eng katta okeani?",answers:["Atlantika","Hind","Tinch","Shimoliy Muz"],correct:2},
+{question:"O‘zbekiston poytaxti?",answers:["Samarqand","Buxoro","Toshkent","Xiva"],correct:2},
+{question:"Eng uzun daryo?",answers:["Nil","Amazonka","Volga","Yangtze"],correct:1},
+{question:"Qaysi materik eng kichik?",answers:["Afrika","Avstraliya","Yevropa","Antarktida"],correct:1},
+{question:"Qaysi davlat Yevropada?",answers:["Braziliya","Fransiya","Misr","Hindiston"],correct:1},
+{question:"Sahara qayerda joylashgan?",answers:["Osiyo","Afrika","Yevropa","Avstraliya"],correct:1},
+{question:"Eng baland tog‘?",answers:["Everest","K2","Alp","And"],correct:0},
+{question:"Qaysi okean eng sovuq?",answers:["Atlantika","Tinch","Hind","Shimoliy Muz"],correct:3},
+{question:"Qaysi davlat ikki qit’ada joylashgan?",answers:["AQSH","Rossiya","Yaponiya","Kanada"],correct:1},
+{question:"Yerning eng katta cho‘li?",answers:["Sahara","Gobi","Antarktida","Kalahari"],correct:2},
+{question:"Qaysi davlat Afrikada?",answers:["Ispaniya","Keniya","Italiya","Norvegiya"],correct:1},
+{question:"Volga qaysi davlatda?",answers:["Rossiya","Xitoy","AQSH","Hindiston"],correct:0},
+{question:"Qaysi shahar dengiz bo‘yida?",answers:["Toshkent","Madrid","Tokyo","Astana"],correct:2},
+{question:"Qaysi materik muz bilan qoplangan?",answers:["Afrika","Antarktida","Osiyo","Yevropa"],correct:1},
+{question:"Eng ko‘p aholili davlat?",answers:["Hindiston","AQSH","Indoneziya","Rossiya"],correct:0},
+{question:"Qaysi davlat orol?",answers:["Italiya","Yaponiya","Germaniya","Polsha"],correct:1},
+{question:"Amazonka qayerda?",answers:["Afrika","Janubiy Amerika","Osiyo","Yevropa"],correct:1},
+{question:"Qaysi davlat Osiyoda?",answers:["Kanada","Xitoy","Braziliya","Fransiya"],correct:1},
+{question:"Eng chuqur okean?",answers:["Atlantika","Hind","Tinch","Barchasi teng"],correct:2},
+{question:"Qaysi davlat cho‘lga ega?",answers:["Misr","Yaponiya","Islandiya","Norvegiya"],correct:0}
+];
+
+let current = 0;
+let score = 0;
+
+function startQuiz() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("quizBox").style.display = "block";
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const q = questions[current];
+  document.getElementById("question").innerText = q.question;
+
+  const buttons = document.querySelectorAll(".answers button");
+  buttons.forEach((btn, i) => {
+    btn.innerText = q.answers[i];
+  });
+}
+
+function checkAnswer(index) {
+  if(index === questions[current].correct){
+    score++;
+    document.getElementById("result").innerText = "To‘g‘ri ✅";
+  } else {
+    document.getElementById("result").innerText = "Noto‘g‘ri ❌";
+  }
+
+  current++;
+
+  setTimeout(()=>{
+    if(current < questions.length){
+      loadQuestion();
+      document.getElementById("result").innerText="";
+    } else {
+      document.getElementById("quizBox").innerHTML =
+      `<h2>Natija: ${score} / ${questions.length}</h2>
+       <button onclick="location.reload()">Qayta boshlash</button>`;
+    }
+  },1000);
+}
+</script>
+
+</body>
+</html>

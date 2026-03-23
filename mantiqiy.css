@@ -1,0 +1,155 @@
+body {
+	font-family: Helvetica;
+	margin: 0;
+	padding: 0;
+}
+
+
+.div-center {
+	text-align: center;
+}
+
+
+.div-inline-id {
+	text-align: center;
+}
+
+header {
+	text-align: center;
+	background: linear-gradient(whitesmoke);
+	box-shadow: 1px 1px 20px black;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+
+	position: sticky;
+	top: 0;
+	z-index: 10000;
+} 
+
+header h1 {
+	color: blue;
+}
+
+header button {
+	background-color: whitesmoke;
+	color: blue;
+	border: 2px solid blue;
+	padding: 5px 30px;
+	font-size: 17px;
+	font-weight: bold
+}
+
+header button:hover {
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+}
+
+
+/*Section Tegi*/
+
+section {
+	text-align: center;
+	margin-top: 50px;
+}
+
+section h2 {
+	color: blue;
+	font-size: 45px;
+	animation: fadeInDown 0.9s ease;
+}
+
+section button {
+	background-color: green;
+	color: white;
+	padding: 20px 50px;
+	border-radius: 10px;
+	border: none;
+	font-size: 18px;
+	animation: fadeInDown 0.9s ease;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+section button:hover {
+	transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+	0% {
+		transform: translateY(-30px);
+	}
+	100% {
+		opacity: 9;
+		transform: translateY(0);
+	}
+}
+
+
+/*DIV SOLO*/
+
+.div-solo {
+	display: inline-block;
+	padding: 10px 30px;
+	text-align: center;
+	border: 2px solid blue;
+	border-radius: 15px;
+	margin-top: 70px;
+	width: 80%;
+	box-shadow: 1px 1px 60px blue;
+}
+
+ol {
+	text-align: left;
+}
+
+.div-in-solo h2 {
+	font-size: 34px;
+}
+
+.div-one h3 {
+	color: blue;
+	font-size: 27px;
+}
+
+.div-two h3 {
+	color: blue;
+	font-size: 27px;
+}
+
+.div-one, .div-two {
+	display: inline-block;
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid blue;
+	text-align: left;
+	font-size: 18px;
+}
+
+
+footer {
+	margin-top: 70px;
+	background-color: whitesmoke;
+	color: blue; 
+}
+
+@media(max-width: 375px) {
+	header {
+		display: flex;
+		padding: 10px;
+	}
+
+	header h1 {
+		font-size: 24px;
+	}
+
+	section h2 {
+		font-size: 29px;
+	}
+
+	section button {
+		padding: 15px 30px;
+	}
+}
