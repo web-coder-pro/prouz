@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Maktab Test Game</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maktab Test Game - Onlayn Quiz</title>
+<meta name="description" content="Onlayn maktab test o‘yini. Matematikadan, informatika va boshqa fanlardan qiyin testlar bilan bilimlaringizni sinab ko‘ring.">
+<meta name="keywords" content="quiz, maktab test, o‘yin, matematik test, informatika, onlayn o‘yin">
+<meta name="author" content="Abdulvahhob Faxriddinov">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maktab Test Game - Onlayn Quiz">
+<meta property="og:description" content="Onlayn maktab test o‘yini. Matematikadan, informatika va boshqa fanlardan qiyin testlar bilan bilimlaringizni sinab ko‘ring.">
+<meta property="og:image" content="https://example.com/og-image.png">
+<meta property="og:url" content="https://example.com">
+<meta property="og:site_name" content="Maktab Test Game">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maktab Test Game - Onlayn Quiz">
+<meta name="twitter:description" content="Onlayn maktab test o‘yini. Matematikadan, informatika va boshqa fanlardan qiyin testlar bilan bilimlaringizni sinab ko‘ring.">
+<meta name="twitter:image" content="https://example.com/og-image.png">
+
+<!-- Favicon -->
+<link rel="icon" href="pro.jpg" type="image/x-icon">
+<link rel="shortcut icon" href="https://example.com/favicon.ico" type="image/x-icon">
+<style>
+body {margin:0;font-family:Arial,sans-serif;color:white;overflow:hidden;
+background:#020617;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;}
+body::before {content:"";position:absolute;width:200%;height:200%;
+background:radial-gradient(circle,#38bdf8 1px,transparent 1px);
+background-size:40px 40px;animation:moveBg 20s linear infinite;opacity:0.2;}
+@keyframes moveBg{from{transform:translate(0,0);}to{transform:translate(-200px,-200px);}}
+body::after{content:"";position:absolute;width:300px;height:300px;background:#2563eb;
+filter:blur(150px);animation:float 6s ease-in-out infinite alternate;}
+@keyframes float{from{transform:translate(-100px,-100px);}to{transform:translate(300px,200px);}}
+.container{position:relative;z-index:2;width:90%;max-width:550px;text-align:center;background:rgba(255,255,255,0.05);
+padding:40px;border-radius:25px;backdrop-filter:blur(15px);box-shadow:0 0 40px rgba(56,189,248,0.4),0 0 80px rgba(37,99,235,0.2);animation:zoomIn 0.6s ease;}
+@keyframes zoomIn{from{opacity:0;transform:scale(0.8);}to{opacity:1;transform:scale(1);}}
+.title{font-size:50px;color:#38bdf8;margin-bottom:25px;letter-spacing:2px;}
+button{background:linear-gradient(45deg,#2563eb,#38bdf8);border:none;padding:18px;width:85%;margin:1px 0;
+color:white;border-radius:12px;cursor:pointer;font-size:18px;transition:0.3s;}
+button:hover{transform:scale(1.05);box-shadow:0 0 20px #38bdf8;}
+input{width:80%;padding:12px;margin:12px 0;border-radius:10px;border:none;font-size:18px;text-align:left; transition: 0.3s;}
+input:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #38bdf8;
+}
+.timer{height:12px;background:#1e293b;border-radius:10px;overflow:hidden;margin-bottom:18px;}
+.timer-bar{height:100%;width:100%;background:#38bdf8;transition:width 1s linear;}
+#question{font-size:24px;margin-bottom:22px;}
+#answers{padding: 30px;}
+
+@media(max-width: 375px) {
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        display: block;
+        width: 300px;
+        border: none;
+        backgrop-filter: blur(0.00000000001px);
+    }
+
+    input {
+        width: 280px;
+        height: 30px;
+        font-weight: bolder;
+        font-size: 18px;
+    }
+
+    button {
+        width: 280px;
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="game">
+    <div class="title">🎮<br> QUIZ GAME</div>
+    <input type="text" id="username" placeholder="Ismingizni kiriting">
+    <button onclick="saveName()">Boshlash</button>
+    <div id="game"></div>
+</div>
+
+<script src="gamespy.js"></script>
+</body>
+</html>
