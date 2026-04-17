@@ -1,0 +1,162 @@
+body {
+	background-color: #000010;
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica;
+}
+
+.div-center {
+	text-align: center;
+}
+
+header {
+	background: linear-gradient(to right, blue, red, #000090);
+	padding: 10px;
+	border-radius: 10px;
+}
+.btn-back {
+	font-size: 40px;
+	text-decoration: none;
+	text-align: left;
+	color:  grey;
+}
+
+.div-in {
+	text-align: left;
+}
+
+
+header h1 {
+	margin-top: -39px;
+	color: whitesmoke;
+	text-align: center;
+}
+
+.div-inline {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	box-shadow: 1px 10px 90px blue;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+input {
+	border-radius: 8px;
+	border: 1px solid red;
+	background-color: #000010;
+	color: red;
+	padding: 5px;
+	height: 36px;
+	font-size: 17px;
+	transition: all 0.4s ease;
+}
+
+input:hover {
+	box-shadow: 1px 1px 20px blue;
+}
+
+/*Input classlari ........*/
+
+
+.ism, .tel {
+	width: 95%;
+}
+
+.sinf, .yosh {
+	width: 45%;
+	margin: 2px;
+}
+
+.yosh {
+	width: 45%;
+}
+
+.div-inline h1 {
+	color: blue;
+}
+
+.div-inline p {
+	color: white;
+}
+
+#sinfSelect, #yoshSelect {
+	background-color: #000010;
+	color: red;
+	width: 48%;
+	height: 38px;
+	font-size: 17px;
+	border-radius: 7px;
+	border: 1px solid red;
+}
+
+button {
+	width: 96%;
+	height: 39px;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	background: linear-gradient(to left, blue, red);
+	transition: all 0.6s ease;
+	font-size: 17px;
+}
+
+button:hover {
+	box-shadow: 1px 1px 20px blue;
+	cursor: pointer;
+	transform: scale(1.02);
+}
+
+form p {
+	color: whitesmoke;
+	font-size: 13px;
+}
+
+form a {
+	margin: 5px;
+	color: skyblue;
+	text-decoration: none;
+	transition: all 0.6s ease;
+}
+
+form a:hover {
+	text-decoration: underline;
+}
+
+
+@media(max-width: 375px) {
+	header {
+		display: none;
+	}
+
+	.div-inline {
+		width: 90%;
+		box-shadow: 1px 1px 1px;
+	}
+
+	.div-inline p {
+		font-size: 18px;
+	}
+	
+}
+
+@media(max-width: 658px) {
+	header {
+		display: none;
+	}
+
+	.div-inline {
+		width: 90%;
+		box-shadow: none;
+	}
+
+	.div-inline {
+		font-size: 19px;
+	}
+
+	form p {
+		font-size: 1.2pc;
+	}
+}
