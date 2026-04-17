@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+}
+
+/* CONTAINER */
+.test-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* TOP */
+.top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top h2 {
+    font-size: 30px;
+}
+
+#timer {
+    background: red;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* QUESTION BOX */
+#question-box {
+    margin-top: 10px;
+    background: #0f172a;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid red;
+    box-shadow: 1px 1px 30px blue;
+}
+
+#question {
+    font-size: 25px;
+    line-height: 1.4;
+}
+
+/* ANSWERS */
+#answers {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.answer {
+    background: #020617;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.answer:hover {
+    background: #1e293b;
+}
+
+/* TANLANGAN JAVOB */
+.selected {
+    background: #1e3a8a;
+    border: 2px solid red;
+    position: relative;
+}
+
+/* CHECK ICON */
+.selected::after {
+    content: "✔";
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    color: white;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 10px;
+    box-shadow: 1px 1px 30px blue;
+}
+
+button:hover {
+    background: red;
+}
+
+/* FINISH BUTTON */
+.finish {
+    width: 100%;
+    margin-top: 20px;
+    background: red;
+    font-size: 16px;
+    display: none; /* default yashirin */
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .test-container {
+        margin: 10px;
+    }
+
+    #question {
+        font-size: 18px;
+    }
+
+    .answer {
+        font-size: 15px;
+    }
+}

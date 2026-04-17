@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="icon" type="image/png" href="pro.jpg">
+    <link rel="stylesheet" href="classstyle.css">
+</head>
+<body>
+
+<div class="test-container">
+
+    <div class="top">
+        <h2>📘 Imtihon Testi</h2>
+        <div id="timer">40:00</div>
+    </div>
+
+    <div id="question-box">
+        <h3 id="question"></h3>
+        <div id="answers"></div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevQuestion()">⬅ Orqaga</button>
+        <button onclick="nextQuestion()">Oldinga ➡</button>
+    </div>
+
+    <button class="finish" onclick="finishTest()">Yakunlash</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
